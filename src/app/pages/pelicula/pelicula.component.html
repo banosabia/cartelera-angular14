@@ -1,0 +1,37 @@
+<div *ngIf="pelicula" class="row animate__animated animate__fadeIn">
+    
+    <div class="col-md-6">
+        <img [src]="pelicula.poster_path | poster:300" 
+             [alt]="pelicula.title">
+
+        <div class="row mt-2">
+            <div class="col">
+                <button (click)="onVolver()" class="btn btn-outline-info">Volver</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3>{{pelicula.title}}</h3>
+        <div class="row">
+            <div class="col">
+                <small>{{pelicula.release_date | date:'dd/MM/yyyy' }}</small>
+            </div>
+            <div class="col">
+                <small>{{pelicula.vote_average}}</small>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                {{pelicula.overview}}
+            </div>
+        </div>
+
+        <div class="row" *ngIf="cast && cast.length > 0">
+            <div class="col">
+                <app-cast-slideshow [cast]="cast"></app-cast-slideshow>
+            </div>
+        </div>
+    </div>
+
+</div>
+

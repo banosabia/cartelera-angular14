@@ -1,0 +1,19 @@
+<div class="mt-3">
+    <strong>Actores</strong>
+</div>
+<div class="swiper swiper-actores">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide text-center" *ngFor="let actor of cast">
+
+        <img [src]="actor.profile_path | poster" 
+             [alt]="actor.name"
+             class="actor-img">
+
+        <div><small>{{actor.name}}</small></div>
+      </div>
+
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
